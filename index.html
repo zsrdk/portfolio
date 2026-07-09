@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Портфолио дизайнера</title>
+  <style>
+    :root{
+      --bg:#f7f7f5; --paper:#fbfbfa; --ink:#0b0b0b; --muted:#5f5f5b;
+      --line:2px solid var(--ink); --soft:rgba(0,0,0,.06); --r:34px; --r2:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial, Helvetica, sans-serif;line-height:1.08;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    .browser{position:sticky;top:12px;z-index:30;margin:14px auto 0;width:min(calc(100% - 24px),1240px);background:var(--paper);border:1px solid #d8d8d8;border-radius:8px;box-shadow:0 14px 35px rgba(0,0,0,.1);overflow:hidden}
+    .browser-top{height:34px;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid #e5e5e5;color:#aaa;font-size:13px}.dot{width:10px;height:10px;border-radius:50%;background:#dcdcdc}.url{margin-left:12px;padding:4px 14px;border:1px solid #e0e0e0;border-radius:5px;color:#777;background:#fff;min-width:260px;text-align:center}
+    header{background:var(--paper);border-bottom:var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}.home{width:40px;height:40px;border:var(--line);border-radius:999px;display:grid;place-items:center;font-size:20px;transition:.25s}.home:hover{transform:translateY(-2px);background:#000;color:#fff}.links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.links a,.pill{font-size:clamp(16px,2.1vw,26px);padding:7px 18px;border:var(--line);border-radius:999px;background:#fff;transition:.25s}.links a:hover,.pill:hover,.btn:hover{background:#000;color:#fff;transform:translateY(-2px)}
+    .lang{font-style:italic}.hero{padding:34px 0 14px}.panel{background:var(--paper);border:var(--line);border-radius:var(--r);padding:clamp(22px,4vw,48px);position:relative;overflow:hidden}.hero-grid{display:grid;grid-template-columns:.95fr 1.15fr;gap:36px;align-items:center}.side-label{position:absolute;left:-5px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:26px}.hero h1{margin:0;font-size:clamp(46px,8vw,80px);letter-spacing:-.075em;line-height:.88}.hero p{max-width:650px;font-size:clamp(20px,2.4vw,12px);margin:24px 0;color:#161616}.contacts-mini{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:var(--line);border-radius:999px;padding:13px 22px;background:#fff;font-size:20px;transition:.25s;cursor:pointer}.visual{min-height:410px;display:grid;place-items:center;position:relative}.poster{width:min(360px,80%);aspect-ratio:1/1.18;border:var(--line);border-radius:20px;background:linear-gradient(135deg,#fff,#eeeeec);display:grid;place-items:center;box-shadow:18px 18px 0 #000}.poster span{font-size:64px;letter-spacing:-.08em;line-height:.78;text-align:center}.tag-cloud{position:absolute;inset:auto 0 8px auto;display:grid;gap:8px}.tag{border:var(--line);border-radius:999px;background:#fff;padding:8px 14px;font-size:18px}
+    section{padding:14px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:0 0 14px}.section-head h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.055em;margin:0}.section-head p{max-width:430px;font-size:20px;color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{background:var(--paper);border:var(--line);border-radius:var(--r2);padding:28px;min-height:220px}.card h3{margin:0 0 22px;font-size:clamp(28px,3vw,52px);letter-spacing:-.05em}.card p,.card li{font-size:20px;color:#252525}.card ul{margin:0;padding-left:22px}.works{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.work-link{display:block;color:inherit;text-decoration:none}.work-link:focus-visible{outline:3px solid #000;outline-offset:4px;border-radius:var(--r)}.work-card{background:var(--paper);border:var(--line);border-radius:var(--r);overflow:hidden;transition:.25s}.work-card:hover{transform:translateY(-8px);box-shadow:10px 10px 0 #000}.work-img{height:260px;border-bottom:var(--line);display:grid;place-items:center;background:repeating-linear-gradient(45deg,#fff 0 14px,#f0f0ee 14px 28px)}.work-img b{font-size:88px;letter-spacing:-.08em}.work-body{padding:24px}.work-body h3{font-size:34px;margin:0 0 12px;letter-spacing:-.05em}.meta{display:grid;grid-template-columns:90px 1fr;gap:8px 18px;font-size:19px}.meta span:nth-child(odd){color:var(--muted)}.contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-big{font-size:clamp(34px,5vw,74px);letter-spacing:-.06em;margin:0}.footer{margin:14px auto 24px}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.footer a,.footer button{display:block;background:transparent;border:0;font:inherit;font-size:21px;padding:4px 0;text-align:left;cursor:pointer}.footer a:hover,.footer button:hover{text-decoration:underline}.reveal{opacity:0;transform:translateY(28px);transition:.65s ease}.reveal.visible{opacity:1;transform:none}
+    .to-top{position:fixed;right:22px;bottom:22px;width:54px;height:54px;border:var(--line);border-radius:50%;background:#fff;font-size:25px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:.25s;z-index:50}.to-top.show{opacity:1;pointer-events:auto;transform:none}.to-top:hover{background:#000;color:#fff}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:80}.modal-backdrop.open{display:flex}.modal{width:min(760px,100%);max-height:82vh;overflow:auto;background:#fff;border:var(--line);border-radius:28px;padding:30px;box-shadow:14px 14px 0 #000}.modal h2{font-size:38px;margin:0 0 18px;letter-spacing:-.04em}.modal p{font-size:18px;line-height:1.35;color:#252525}.modal-close{float:right;border:var(--line);border-radius:999px;background:#fff;padding:8px 14px;font-size:18px;cursor:pointer}.modal-close:hover{background:#000;color:#fff}
+    @media (max-width:860px){.browser{top:0;margin-top:0;border-radius:0;width:100%}.browser-top{display:none}.nav{padding:10px 0;align-items:flex-start}.links{justify-content:flex-end}.links a,.pill{font-size:16px;padding:7px 11px}.hero-grid,.about-grid,.works,.contact-panel,.footer-grid{grid-template-columns:1fr}.side-label{display:none}.panel{padding:22px;border-radius:26px}.poster{box-shadow:10px 10px 0 #000}.visual{min-height:300px}.section-head{display:block}.section-head p{margin-top:10px}.work-img{height:210px}.meta{grid-template-columns:76px 1fr}.url{min-width:auto;width:55%}}
+  
+.poster{background:url('Зосик.png') center/cover no-repeat !important;}
+.poster span{display:none;}
+.work-img{background:#f3f3f3;overflow:hidden;padding:0}
+.work-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+</style>
+</head>
+<body>
+  <div class="browser">
+   
+    <header>
+      <div class="wrap nav">
+        <a class="home" href="#top" aria-label="Наверх">▲</a>
+        <nav class="links" aria-label="Основная навигация">
+          <a href="#about">Обо мне</a><a href="#works">Работы</a><a href="#contacts">Контакты</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <section class="hero wrap reveal">
+      <div class="panel hero-grid">
+        <div class="side-label">Петрова София</div>
+        <div class="visual" aria-hidden="true"><div class="poster"></div><div class="tag-cloud"><span class="tag">Брендинг</span><span class="tag">Типографика</span><span class="tag">Арт-практика</span></div></div>
+        <div><h1>Портфолио</h1><p>Графический дизайнер с опытом создания визуального контента, фирменного стиля и дизайн-макетов для цифровых и печатных носителей.</p><div class="contacts-mini"><a class="btn" href="mailto:hello@designer.ru">email</a><a class="btn" href="#works">смотреть работы</a></div></div>
+      </div>
+    </section>
+
+    <section id="about" class="wrap reveal">
+      <div class="section-head"><h2>Обо мне</h2></div>
+      <div class="about-grid"><article class="card"><h3>Кто я?</h3><p>Меня зовут София, я окончила НИУ ВШЭ по специальности «Коммуникационный дизайн». Отличаюсь креативным подходом, хорошей насмотренностью, организованностью и умением работать в команде.</p></article><article class="card"><h3>Фокус</h3><p>Айдентика и бренд-системы <br> Каталоги, журналы, афиши <br> Арт-объекты и визуальные исследования</p></article></div>
+    </section>
+
+    <section id="works" class="wrap reveal">
+      <div class="section-head"><h2>Работы</h2></div>
+      <div class="works">
+        <a href="Брендинг_ПС.html" class="work-link" aria-label="Перейти в раздел Брендинг">
+          <article class="work-card"><div class="work-img"><img src="Брендинг.jpg" alt=""></div><div class="work-body"><h3>Брендинг</h3><div class="meta"><span>Тип:</span><span>айдентика</span><span>Фокус:</span><span>логотип, палитра, носители</span></div></div></article>
+        </a>
+        <a href="Типография_ПС.html" class="work-link" aria-label="Перейти в раздел Печатные издания">
+          <article class="work-card"><div class="work-img"><img src="Типографика.jpg" alt=""></div><div class="work-body"><h3>Печатные издания</h3><div class="meta"><span>Тип:</span><span>типографика</span><span>Фокус:</span><span>сетка, верстка, обложка</span></div></div></article>
+        </a>
+        <a href="Арт-практика_ПС.html" class="work-link" aria-label="Перейти в раздел Арт-практика">
+          <article class="work-card"><div class="work-img"><img src="Арт-практика.jpg" alt=""></div><div class="work-body"><h3>Арт-практика</h3><div class="meta"><span>Тип:</span><span>визуальный эксперимент</span><span>Фокус:</span><span>форма, материал, образ</span></div></div></article>
+        </a>
+      </div>
+    </section>
+
+    <section id="contacts" class="wrap reveal">
+      <div class="contact-panel"><div class="card"><h2 class="contact-big">Связаться</h2></div><div class="card"><h3>Email</h3><p>Для сотрудничества и вопросов:</p><a class="btn" href="mailto:zsrdk@yandex.ru">zsrdk@yandex.ru</a></div></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer reveal">
+    <div class="footer-grid panel"><div><p style="font-size:22px;margin:0">© 2026 Портфолио.<br>Все права защищены.</p></div><div><button data-modal="agreement">Пользовательское соглашение</button><button data-modal="cookies">Уведомление о cookie</button><a href="mailto:hello@designer.ru">Mail</a></div></div>
+  </footer>
+
+  <button class="to-top" aria-label="Наверх">↑</button>
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true"><button class="modal-close">Закрыть</button><div id="modalContent"></div></div></div>
+
+  <script>
+    const revealItems=document.querySelectorAll('.reveal');
+    const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+    revealItems.forEach(el=>io.observe(el));
+    const topBtn=document.querySelector('.to-top');
+    window.addEventListener('scroll',()=>topBtn.classList.toggle('show',window.scrollY>520));
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    const content={agreement:`<h2>Пользовательское соглашение</h2><p>Сайт является информационным портфолио дизайнера. Материалы размещены для ознакомления с работами и направлениями деятельности.</p><p>Формы обратной связи на сайте отсутствуют. Сайт не собирает, не сохраняет и не обрабатывает персональные данные пользователей. Кнопка email открывает почтовый клиент пользователя для самостоятельной отправки сообщения.</p><p>Все тексты, изображения, макеты и элементы оформления принадлежат автору портфолио, если не указано иное.</p>`,cookies:`<h2>Уведомление о cookie</h2><p>Сайт может использовать cookie и сервис веб-аналитики Яндекс.Метрика для базовой статистики посещений: просмотры страниц, источники переходов, технические параметры устройства и браузера.</p><p>Персональные данные через формы на сайте не собираются, поскольку формы отсутствуют. Пользователь может ограничить использование cookie в настройках браузера.</p>`};
+    const backdrop=document.getElementById('modalBackdrop'), modalContent=document.getElementById('modalContent');
+    document.querySelectorAll('[data-modal]').forEach(btn=>btn.addEventListener('click',()=>{modalContent.innerHTML=content[btn.dataset.modal];backdrop.classList.add('open');backdrop.setAttribute('aria-hidden','false')}));
+    function closeModal(){backdrop.classList.remove('open');backdrop.setAttribute('aria-hidden','true')}
+    document.querySelector('.modal-close').addEventListener('click',closeModal);backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  </script>
+</body>
+</html>
